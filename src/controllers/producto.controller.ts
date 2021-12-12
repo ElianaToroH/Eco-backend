@@ -26,7 +26,7 @@ export class ProductoController {
     @repository(ProductoRepository)
     public productoRepository : ProductoRepository,
   ) {}
-  @authenticate('employ')
+  @authenticate('admin')
   @post('/productos')
   @response(200, {
     description: 'Producto model instance',
@@ -58,7 +58,7 @@ export class ProductoController {
   ): Promise<Count> {
     return this.productoRepository.count(where);
   }
-
+  @authenticate.skip()
   @get('/productos')
   @response(200, {
     description: 'Array of Producto model instances',
@@ -76,7 +76,7 @@ export class ProductoController {
   ): Promise<Producto[]> {
     return this.productoRepository.find(filter);
   }
- @authenticate('employ')
+ @authenticate('admin')
   @patch('/productos')
   @response(200, {
     description: 'Producto PATCH success count',
@@ -111,7 +111,7 @@ export class ProductoController {
   ): Promise<Producto> {
     return this.productoRepository.findById(id, filter);
   }
- @authenticate('emply')
+ @authenticate('admin')
   @patch('/productos/{id}')
   @response(204, {
     description: 'Producto PATCH success',
@@ -129,7 +129,7 @@ export class ProductoController {
   ): Promise<void> {
     await this.productoRepository.updateById(id, producto);
   }
-  @authenticate('employ')
+  @authenticate('admin')
   @put('/productos/{id}')
   @response(204, {
     description: 'Producto PUT success',
@@ -140,7 +140,7 @@ export class ProductoController {
   ): Promise<void> {
     await this.productoRepository.replaceById(id, producto);
   }
-  @authenticate('employ')
+  @authenticate('admin')
   @del('/productos/{id}')
   @response(204, {
     description: 'Producto DELETE success',

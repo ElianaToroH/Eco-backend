@@ -24,6 +24,7 @@ import {RolRepository, UsuarioRepository} from '../repositories';
 import { AutenticacionService } from '../services';
 import {llaves} from '../config/llaves'
 import { promises } from 'dns';
+import {authenticate} from '@loopback/authentication';
 const fetch = require('node-fetch');
 
 export class UsuarioController {
@@ -37,8 +38,8 @@ export class UsuarioController {
   ) {}
 
   //Cambiar contraseña
-
-  @put('/cambiarComtrasena')
+@authenticate.skip()
+  @put('/cambiarContrasena')
   @response(200,{
     description: "Cambiar una contraseña"
   })
@@ -85,7 +86,7 @@ export class UsuarioController {
       throw new HttpErrors['401']("Datos incorrectos")
     }
   }
-  
+
   @post('/usuarios')
   @response(200, {
     description: 'Usuario model instance',

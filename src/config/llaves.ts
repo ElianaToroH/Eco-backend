@@ -1,4 +1,4 @@
 export namespace llaves {
     export const claveJwt = 'EcoSastreria';
-    export const urlServiciosNotificaciones= 'http://localhost:5000';
+    export const urlServiciosNotificaciones= 'https://envio-notificaciones.herokuapp.com';
 }
