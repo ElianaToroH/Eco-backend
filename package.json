@@ -1,7 +1,7 @@
 {
   "name": "eco-sastreria",
   "version": "0.0.1",
-  "description": "EcoSastreriaBa",
+  "description": "Proyecto MinTic",
   "keywords": [
     "loopback-application",
     "loopback"
@@ -42,7 +42,7 @@
     "type": "git",
     "url": ""
   },
-  "author": "Luis Fernández <luisexneider1999@gmail.com>",
+  "author": "Eliana Toro <elianatorohuertas@gmail.com>",
   "license": "",
   "files": [
     "README.md",
